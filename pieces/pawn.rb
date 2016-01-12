@@ -2,12 +2,13 @@ require_relative 'piece'
 
 class Pawn < Pieces
 
-  def initialize(name = "Pawn", to_s)
-    super
+  def initialize
+    super("Pawn")
   end
 
-  # def to_s
-  #   @to_s
-  # end
-
+  def color(color)
+    @to_s = " \u265F ".colorize(color)
+    @color = color
+  end
+  
 end

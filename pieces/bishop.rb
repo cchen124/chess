@@ -1,9 +1,12 @@
-require_relative 'slide_piece'
-
 class Bishop < SlidingPieces
 
-  def initialize(name = "Bishop", to_s)
-    super
+  def initialize
+    super("Bishop")
+  end
+
+  def color(color)
+    @to_s = " \u265D ".colorize(color)
+    @color = color
   end
 
 end

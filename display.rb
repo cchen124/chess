@@ -2,7 +2,6 @@ require 'colorize'
 require_relative 'board'
 # require_relative 'game'
 require_relative 'cursorable'
-require_relative 'piece'
 
 class Display
 

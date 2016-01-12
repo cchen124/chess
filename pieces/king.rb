@@ -1,9 +1,12 @@
-require_relative 'step_piece'
-
 class King < SteppingPieces
 
-  def initialize(name = "King", to_s)
-    super
+  def initialize
+    super("King")
+  end
+
+  def color(color)
+    @to_s = " \u265A ".colorize(color)
+    @color = color
   end
 
 end

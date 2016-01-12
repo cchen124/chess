@@ -1,51 +1,58 @@
-require_relative 'piece'
+require_relative 'pieces'
+require 'byebug'
+require 'colorize'
 
 class Board
 
   attr_reader :grid
 
-  def initialize()
+  BACK_POSITIONS = [Rook.new,
+    Knight.new,
+    Bishop.new,
+    Queen.new,
+    King.new,
+    Bishop.new,
+    Knight.new,
+    Rook.new]
+
+  def initialize
     @grid = Array.new(8) {Array.new(8) {NullPiece.new} }
   end
 
   def populate
-
-    @grid[0] = [Rook.new(" \u2656 "),
-      Knight.new(" \u2658 "),
-      Bishop.new(" \u2657 "),
-      Queen.new(" \u2655 "),
-      King.new(" \u2654 "),
-      Bishop.new(" \u2657 "),
-      Knight.new(" \u2658 "),
-      Rook.new(" \u2656 ")]
-
-    @grid[1].map! do |pawn|
-      pawn = Pawn.new(" \u{2659} ")
+    [:white, :black].each do |color|
+      fill_back_pieces(color)
+      fill_pawns(color)
     end
-
-    @grid[6].map! do |pawn|
-      pawn = Pawn.new(" \u{265F} ")
-    end
-
-    @grid[7] = [Rook.new(" \u265C "),
-      Knight.new(" \u265E "),
-      Bishop.new(" \u265D "),
-      Queen.new(" \u265B "),
-      King.new(" \u265A "),
-      Bishop.new(" \u265D "),
-      Knight.new(" \u265E "),
-      Rook.new(" \u265C ")]
-
   end
 
-  def move!(start_pos, end_pos)
-  end
 
-  def move(start_pos, end_pos)
-    # raise "Error" if self[start_pos] == nil # raises error if no piece at strt pos
-    # raise "Another error" if self[end_pos] == outside board || same team
-
+  def move!(start_pos, end_pos) # actually moves the piece to the end pos
     self[start_pos].position = end_pos
+  end
+
+  def move(start_pos, end_pos) #where we check for checkmate
+
+  end
+
+  def fill_pawns(color)
+    color == :white ? (x = 1) : (x = 6)
+    @grid[x].length.times do |y|
+      pos = [x, y]
+      self[pos] = Pawn.new
+      self[pos].color(color)
+      self[pos].position(pos)
+    end
+  end
+
+  def fill_back_pieces(color)
+    color == :white ? (x = 0) : (x = 7)
+    @grid[x].length.times do |y|
+      pos = [x, y]
+      self[pos] = Board::BACK_POSITIONS[y]
+      self[pos].color(color)
+      self[pos].position(pos)
+    end
   end
 
   def [](pos)
@@ -53,7 +60,7 @@ class Board
     @grid[x][y]
   end
 
-  def [](pos, value)
+  def []=(pos, value)
     x, y = pos
     @grid[x][y] = value
   end

@@ -1,11 +1,21 @@
-require 'step_piece'
-
 class Knight < SteppingPieces
 
-  def initialize(name = "Knight", to_s)
-    super
+  DIRECTIONS = [[2, 1],
+                      [-2, 1],
+                      [-2, -1],
+                      [2, -1],
+                      [-1, 2],
+                      [1, 2],
+                      [-1, -2],
+                      [1, -2]
+                     ]
+  def initialize
+    super("Pawn")
   end
 
-  def 
+  def color(color)
+    @to_s = " \u265F ".colorize(color)
+    @color = color
+  end
 
 end
