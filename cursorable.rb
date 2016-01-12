@@ -37,7 +37,6 @@ module Cursorable
 
   def toggle_select
     @selected ? @selected = false : @selected = true
-
   end
 
   def handle_key(key)

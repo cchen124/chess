@@ -1,8 +1,25 @@
 class Pieces
 
-  def initialize(type, position)
+  attr_reader :color
+
+  def initialize(type, position, color = "   ")
     @piece_type = type
     @position = position
+    @color = color
+  end
+
+end
+
+class NullPiece
+  attr_accessor :type
+
+  def initialize
+    @type  = "   "
+
+  end
+
+  def to_s
+    "   "
   end
 
 end
@@ -22,7 +39,11 @@ end
 class Rook < SlidingPieces
 
   def move_dirs
+    []
+  end
 
+  def to_s
+    " \u{2656} "
   end
 
 end
@@ -33,12 +54,20 @@ class Bishop < SlidingPieces
 
   end
 
+  def to_s
+    " \u{2656} "
+  end
+
 end
 
 class Queen < SlidingPieces
 
   def move_dirs
 
+  end
+
+  def to_s
+    " \u{2656} "
   end
 
 end
@@ -56,6 +85,10 @@ class Pawn < Pieces
 
   def moves(current_position)
 
+  end
+
+  def to_s
+    " \u{2656} "
   end
 
 end

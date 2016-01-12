@@ -1,9 +1,11 @@
+require_relative 'piece'
+
 class Board
 
   attr_reader :grid
 
   def initialize()
-    @grid = Array.new(8) {Array.new(8) {Piece.new} }
+    @grid = Array.new(8) {Array.new(8) {NullPiece.new} }
 
   end
 
@@ -24,6 +26,8 @@ class Board
     @grid[x][y] = value
   end
 
-
+  def rows
+    @grid
+  end
 
 end
