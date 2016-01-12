@@ -41,42 +41,66 @@ end
 
 class Rook < SlidingPieces
 
-  def move_dirs
-    []
+  def initialize(type = "Rook", to_s)
+    @to_s = to_s
   end
 
-  def to_s
-    " \u{2656} "
+  def moves(current_position)
+
   end
 
 end
 
 class Bishop < SlidingPieces
 
-  def move_dirs
-
+  def initialize(type = "Bishop", to_s)
+    @to_s = to_s
   end
 
-  def to_s
-    " \u{2656} "
+  def moves(current_position)
+
   end
 
 end
 
 class Queen < SlidingPieces
 
-  def move_dirs
-
+  def initialize(type = "Queen", to_s)
+    @to_s = to_s
   end
 
-  # def to_s
-  #   @to_s
-  # end
+  def moves(current_position)
+
+  end
 
 end
 
 
 class SteppingPieces < Pieces
+
+  def moves(current_position)
+
+  end
+
+end
+
+class King < SteppingPieces
+
+  def initialize(type = "King", to_s)
+    @to_s = to_s
+  end
+
+  def moves(current_position)
+
+  end
+
+end
+
+class Knight < SteppingPieces
+
+  def initialize(type = "Knight", to_s)
+    @to_s = to_s
+  end
 
   def moves(current_position)
 

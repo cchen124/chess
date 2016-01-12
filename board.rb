@@ -12,6 +12,15 @@ class Board
 
   def populate
 
+    @grid[0] = [Rook.new(" \u2656 "),
+      Knight.new(" \u2658 "),
+      Bishop.new(" \u2657 "),
+      Queen.new(" \u2655 "),
+      King.new(" \u2654 "),
+      Bishop.new(" \u2657 "),
+      Knight.new(" \u2658 "),
+      Rook.new(" \u2656 ")]
+
     @grid[1].map! do |pawn|
       pawn = Pawn.new(" \u{2659} ")
     end
@@ -19,6 +28,15 @@ class Board
     @grid[6].map! do |pawn|
       pawn = Pawn.new(" \u{265F} ")
     end
+
+    @grid[7] = [Rook.new(" \u265C "),
+      Knight.new(" \u265E "),
+      Bishop.new(" \u265D "),
+      Queen.new(" \u265B "),
+      King.new(" \u265A "),
+      Bishop.new(" \u265D "),
+      Knight.new(" \u265E "),
+      Rook.new(" \u265C ")]
 
   end
 
