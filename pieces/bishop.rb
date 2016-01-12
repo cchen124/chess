@@ -6,8 +6,4 @@ class Bishop < SlidingPieces
     super
   end
 
-  def moves(current_position)
-
-  end
-
 end

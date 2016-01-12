@@ -6,8 +6,4 @@ class Rook < SlidingPieces
     super
   end
 
-  def moves(current_position)
-
-  end
-
 end

@@ -1,7 +1,5 @@
+require_relative 'piece'
+
 class SlidingPieces < Pieces
-
-  def moves(current_position)
-
-  end
 
 end

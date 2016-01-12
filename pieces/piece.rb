@@ -2,6 +2,16 @@ class Pieces
 
   attr_reader :color
 
+  PERPENDICULAR_DIRS = [[1,0],
+                        [-1,0],
+                        [0,1],
+                        [0,-1]]
+
+  DIAGONAL_DIRS = [[1,1],
+                  [-1,-1],
+                  [-1,1],
+                  [1,-1]]
+
   def initialize(name, to_s)
     @name = name
     # @position = position
