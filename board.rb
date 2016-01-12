@@ -19,6 +19,7 @@ class Board
     @grid[6].map! do |pawn|
       pawn = Pawn.new(" \u{265F} ")
     end
+
   end
 
   def move(start_pos, end_pos)

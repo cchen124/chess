@@ -2,10 +2,14 @@ class Pieces
 
   attr_reader :color
 
-  def initialize(type, position, color = "   ")
+  def initialize(type, to_s)
     @piece_type = type
     @position = position
-    @color = color
+    @to_s = to_s
+  end
+
+  def to_s
+    @to_s
   end
 
 end
@@ -13,13 +17,12 @@ end
 class NullPiece
   attr_accessor :type
 
-  def initialize
-    @type  = "   "
-
+  def initialize(to_s = "   ")
+    @to_s = to_s
   end
 
   def to_s
-    "   "
+    @to_s
   end
 
 end
@@ -66,9 +69,9 @@ class Queen < SlidingPieces
 
   end
 
-  def to_s
-    " \u{2656} "
-  end
+  # def to_s
+  #   @to_s
+  # end
 
 end
 
@@ -83,7 +86,7 @@ end
 
 class Pawn < Pieces
 
-  def initialize(to_s)
+  def initialize(type = "Pawn", to_s)
     @to_s = to_s
   end
 
@@ -91,8 +94,8 @@ class Pawn < Pieces
 
   end
 
-  def to_s
-    @to_s
-  end
+  # def to_s
+  #   @to_s
+  # end
 
 end
