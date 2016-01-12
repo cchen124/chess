@@ -38,6 +38,9 @@ class Board
 
   end
 
+  def move!(start_pos, end_pos)
+  end
+
   def move(start_pos, end_pos)
     # raise "Error" if self[start_pos] == nil # raises error if no piece at strt pos
     # raise "Another error" if self[end_pos] == outside board || same team
