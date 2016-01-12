@@ -2,9 +2,9 @@ class Pieces
 
   attr_reader :color
 
-  def initialize(type, to_s)
-    @piece_type = type
-    @position = position
+  def initialize(name, to_s)
+    @name = name
+    # @position = position
     @to_s = to_s
   end
 
@@ -15,7 +15,7 @@ class Pieces
 end
 
 class NullPiece
-  attr_accessor :type
+  attr_accessor :name
 
   def initialize(to_s = "   ")
     @to_s = to_s
@@ -29,10 +29,6 @@ end
 
 class SlidingPieces < Pieces
 
-  def initialize(name, position)
-    super(name, position)
-  end
-
   def moves(current_position)
 
   end
@@ -41,8 +37,8 @@ end
 
 class Rook < SlidingPieces
 
-  def initialize(type = "Rook", to_s)
-    @to_s = to_s
+  def initialize(name = "Rook", to_s)
+    super
   end
 
   def moves(current_position)
@@ -53,8 +49,8 @@ end
 
 class Bishop < SlidingPieces
 
-  def initialize(type = "Bishop", to_s)
-    @to_s = to_s
+  def initialize(name = "Bishop", to_s)
+    super
   end
 
   def moves(current_position)
@@ -65,8 +61,8 @@ end
 
 class Queen < SlidingPieces
 
-  def initialize(type = "Queen", to_s)
-    @to_s = to_s
+  def initialize(name = "Queen", to_s)
+    super
   end
 
   def moves(current_position)
@@ -86,8 +82,8 @@ end
 
 class King < SteppingPieces
 
-  def initialize(type = "King", to_s)
-    @to_s = to_s
+  def initialize(name = "King", to_s)
+    super
   end
 
   def moves(current_position)
@@ -98,8 +94,8 @@ end
 
 class Knight < SteppingPieces
 
-  def initialize(type = "Knight", to_s)
-    @to_s = to_s
+  def initialize(name = "Knight", to_s)
+    super
   end
 
   def moves(current_position)
@@ -110,8 +106,8 @@ end
 
 class Pawn < Pieces
 
-  def initialize(type = "Pawn", to_s)
-    @to_s = to_s
+  def initialize(name = "Pawn", to_s)
+    super
   end
 
   def moves(current_position)

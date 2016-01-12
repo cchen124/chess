@@ -18,7 +18,7 @@ class Display
 
   def render
     system("clear")
-    puts "Chess!"
+    puts "Let's play Chess!"
     build_grid.each { |row| puts row.join }
     puts "Use arrow keys, WASD, to move. Press space or enter to select a square."
   end
