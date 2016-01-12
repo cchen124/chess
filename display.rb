@@ -47,9 +47,9 @@ class Display
     elsif (i + j).odd?
       bg = :white
     else
-      bg = :light_gray
+      bg = :light_blue
     end
-    {background: bg, color: :white }
+    {background: bg, color: :black }
   end
 
 end

@@ -7,6 +7,18 @@ class Board
   def initialize()
     @grid = Array.new(8) {Array.new(8) {NullPiece.new} }
 
+
+  end
+
+  def populate
+
+    @grid[1].map! do |pawn|
+      pawn = Pawn.new(" \u{2659} ")
+    end
+
+    @grid[6].map! do |pawn|
+      pawn = Pawn.new(" \u{265F} ")
+    end
   end
 
   def move(start_pos, end_pos)

@@ -83,12 +83,16 @@ end
 
 class Pawn < Pieces
 
+  def initialize(to_s)
+    @to_s = to_s
+  end
+
   def moves(current_position)
 
   end
 
   def to_s
-    " \u{2656} "
+    @to_s
   end
 
 end
