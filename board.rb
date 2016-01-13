@@ -38,10 +38,13 @@ class Board
 
   def move!(start_pos, end_pos) # actually moves the piece to the end pos
     self[start_pos].position = end_pos
+    self[end_pos] = self[start_pos]
   end
 
   def move(start_pos, end_pos) #where we check for checkmate
+
     if self[start_pos].moves(start_pos).include?(end_pos)
+      print "hello"
       move!(start_pos, end_pos)
     end
   end

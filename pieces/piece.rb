@@ -32,6 +32,10 @@ class Pieces
     @pos = pos
   end
 
+  def position=(pos)
+    @pos = pos
+  end
+
   def board(board)
     @board = board
   end
@@ -49,7 +53,7 @@ class Pieces
     return false unless move.all? { |coord| coord.between?(0,7) }
     # return false if board[move].color == @color
     # true
-    @board[move].color == @color
+    @board[move].color != @color
   end
 
 end
