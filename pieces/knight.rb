@@ -1,6 +1,9 @@
 class Knight < SteppingPieces
 
-  DIRECTIONS = [[2, 1],
+  attr_reader :directions
+
+  def initialize
+    @directions = [[2, 1],
                       [-2, 1],
                       [-2, -1],
                       [2, -1],
@@ -9,12 +12,16 @@ class Knight < SteppingPieces
                       [-1, -2],
                       [1, -2]
                      ]
-  def initialize
-    super("Pawn")
-  end
 
-  def color(color)
-    @to_s = " \u265F ".colorize(color)
+    super("Knight")
+  end
+  #
+  # def initialize
+  #
+  # end
+
+  def change_color(color)
+    @to_s = " \u265E ".colorize(color)
     @color = color
   end
 

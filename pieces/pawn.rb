@@ -6,9 +6,9 @@ class Pawn < Pieces
     super("Pawn")
   end
 
-  def color(color)
+  def change_color(color)
     @to_s = " \u265F ".colorize(color)
     @color = color
   end
-  
+
 end

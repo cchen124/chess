@@ -1,9 +1,10 @@
 class SteppingPieces < Pieces
 
-  def all_moves
+  def all_moves(start_pos)
     positions = []
-    x,y = @pos
-    DIRECTIONS.each do |dx,dy|
+    x, y = start_pos
+
+    directions.each do |dx, dy|
       positions << [x + dx, y + dy]
     end
 

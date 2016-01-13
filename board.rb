@@ -15,6 +15,15 @@ class Board
     Knight.new,
     Rook.new]
 
+  FRONT_POSITIONS = [Rook.new,
+    Knight.new,
+    Bishop.new,
+    Queen.new,
+    King.new,
+    Bishop.new,
+    Knight.new,
+    Rook.new]
+
   def initialize
     @grid = Array.new(8) {Array.new(8) {NullPiece.new} }
   end
@@ -32,7 +41,9 @@ class Board
   end
 
   def move(start_pos, end_pos) #where we check for checkmate
-
+    if self[start_pos].moves(start_pos).include?(end_pos)
+      move!(start_pos, end_pos)
+    end
   end
 
   def fill_pawns(color)
@@ -40,8 +51,9 @@ class Board
     @grid[x].length.times do |y|
       pos = [x, y]
       self[pos] = Pawn.new
-      self[pos].color(color)
+      self[pos].change_color(color)
       self[pos].position(pos)
+      self[pos].board(self)
     end
   end
 
@@ -49,9 +61,11 @@ class Board
     color == :white ? (x = 0) : (x = 7)
     @grid[x].length.times do |y|
       pos = [x, y]
-      self[pos] = Board::BACK_POSITIONS[y]
-      self[pos].color(color)
+      self[pos] = Board::BACK_POSITIONS[y] if color == :white
+      self[pos] = Board::FRONT_POSITIONS[y] if color == :black
+      self[pos].change_color(color)
       self[pos].position(pos)
+      self[pos].board(self)
     end
   end
 

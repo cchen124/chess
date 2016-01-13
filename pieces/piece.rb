@@ -1,6 +1,7 @@
 class Pieces
 
-  attr_reader :color, :position
+  attr_reader :color, :position, :grid
+
   PERPENDICULAR_DIRS = [[1,0],
                         [-1,0],
                         [0,1],
@@ -13,45 +14,52 @@ class Pieces
 
   def initialize(name)
     @name = name
-    @position = nil
   end
 
   def to_s
     @to_s
   end
 
-  def color(color)
+  def change_color(color)
     @color = color
+  end
+
+  def color
+    @color
   end
 
   def position(pos)
     @pos = pos
   end
 
-  def moves(start_pos)
-
+  def board(board)
+    @board = board
   end
 
-  def valid_move?(all_moves)
+  def moves(start_pos)
     valid_moves = []
-
-    all_moves.each do |move|
-      if move.all? { |coord| coord.between?(0,7) } &&
-        valid_moves << move
-      end
+    all_moves(start_pos).each do |move|
+      valid_moves << move if valid_move?(move)
     end
 
+    valid_moves
+  end
 
-
+  def valid_move?(move)
+    return false unless move.all? { |coord| coord.between?(0,7) }
+    # return false if board[move].color == @color
+    # true
+    @board[move].color == @color
   end
 
 end
 
 class NullPiece
-  attr_accessor :name
+  attr_accessor :name, :color
 
   def initialize(to_s = "   ")
     @to_s = to_s
+    @color = nil
   end
 
   def to_s
